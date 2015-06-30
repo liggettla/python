@@ -17,10 +17,11 @@ print "If you do want that, hit RETURN."
 raw_input("?")
 
 print "Opening the file..."
+#w+, r+, and a+ will open a file for reading and writing
 target = open(filename, 'w')
 
 print "Truncating the file. Goodbye!"
-#target.truncate()
+target.truncate()
 
 print "Now I'm going to ask you for three lines."
 
@@ -43,5 +44,6 @@ target.close()
 
 print "Here are the contents of the textfile:"
 #opening without -w -r or -a like below implicitly uses -r
+#-w writes, -r reads, -a appends
 target = open(filename)
 print target.read()
