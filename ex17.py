@@ -1,5 +1,6 @@
 #argv is a list containing the arguments passed to the python interpreter
 from sys import argv
+#this is used to import the exists() function
 from os.path import exists
 
 #run like this: python ex17.py test17.txt new_file17.txt
@@ -13,6 +14,7 @@ print "Copying from %s to %s" % (from_file, to_file)
 
 indata = open(from_file).read()
 
+#len() gets the length of a string and returns it as a number
 print "The input file is %d bytes long" % len(indata)
 
 print "Does the output file exist? %r" % exists(to_file)
