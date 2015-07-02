@@ -1,8 +1,8 @@
 #create a mapping of state to abbreviation
 states = {
-    'Oregon' : 'OR' , 
-    'Florida' : 'FL' , 
-    'California' : 'CA' , 
+    'Oregon' : 'OR' ,
+    'Florida' : 'FL' ,
+    'California' : 'CA' ,
     'New York' : 'NY'
 }
 
@@ -26,16 +26,17 @@ print "OR State has: ", cities['OR']
 
 #print some states
 print '-' * 10
-print "Michigan's abbreviation is: ", states['Michigan']
+print "California's abbreviation is: ", states['California']
 print "Florida's abbreviation is: ", states['Florida']
 
 #do it using the state then cities dict
 print '-' * 10
-print "Michigan has: ", cities[states['Michigan']]
+print "California has: ", cities[states['California']]
 print "Florida has: ", cities[states['Florida']]
 
 #print every state abbreviation
 print '-' * 10
+print '*' * 20
 for state, abbrev in states.items():
     print "%s is abbreviated %s" % (state, abbrev)
 
@@ -43,7 +44,7 @@ for state, abbrev in states.items():
 print '-' * 10
 for abbrev, city in cities.items():
     print "%s has the city %s" % (abbrev, city)
-    
+
 #now do both at the same time
 print '-' * 10
 for state, abbrev in states.items():
