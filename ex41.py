@@ -2,6 +2,7 @@ import random
 from urllib import urlopen
 import sys
 
+#vocab list
 WORD_URL = "http://learncodethehardway.org/words.txt"
 WORDS = []
 
