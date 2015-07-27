@@ -11,21 +11,24 @@ class Engine():
         print "\nPlayer Name: %s" % (player.name)
         print "Player Attack: %i" % (player.attack)
         print "Player Defense: %i" % (player.defense)
-        print "Player Speed: %i\n" % (player.speed)
+        print "Player Perception: %i" % (player.perception)
+        print "Player Stealth: %i\n" % (player.stealth)
 
         friendName = friends()
         friend = Character(friendName)
         print "\nYour Friend's Name: %s" % (friend.name)
         print "Your Friend's Attack: %i" % (friend.attack)
         print "Your Friend's Defense: %i" % (friend.defense)
-        print "Your Friend's Speed: %i\n" % (friend.speed)
+        print "Your Friend's Perception: %i" % (friend.perception)
+        print "Your Friend's Stealth: %i\n" % (friend.stealth)
 
 class Character(object):
 
     def __init__(self, object):
         self.attack = randint(1,100)
         self.defense = randint(1,100)
-        self.speed = randint(1,100)
+        self.perception = randint(1,100)
+        self.stealth = randint(1,100)
         self.name = object
 
 class Scene(object):
