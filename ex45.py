@@ -8,23 +8,23 @@ class Engine():
     def play(self):
         name = raw_input("Input Player Name: ")
         player = Character()
-        print "\nPlayer Name: %s" % (player.name)
-        print "Player Attack: %i" % (player.attack)
-        print "Player Defense: %i" % (player.defense)
-        print "Player Perception: %i" % (player.perception)
-        print "Player Stealth: %i\n" % (player.stealth)
+        #print "\nPlayer Name: %s" % (player.name)
+        #print "Player Attack: %i" % (player.attack)
+        #print "Player Defense: %i" % (player.defense)
+        #print "Player Perception: %i" % (player.perception)
+        #print "Player Stealth: %i\n" % (player.stealth)
 
         #friendName = NPC()
         friend = Character()
-        print "\nYour Friend's Name: %s" % (friend.name)
-        print "Your Friend's Attack: %i" % (friend.attack)
-        print "Your Friend's Defense: %i" % (friend.defense)
-        print "Your Friend's Perception: %i" % (friend.perception)
-        print "Your Friend's Stealth: %i\n" % (friend.stealth)
+        #print "\nYour Friend's Name: %s" % (friend.name)
+        #print "Your Friend's Attack: %i" % (friend.attack)
+        #print "Your Friend's Defense: %i" % (friend.defense)
+        #print "Your Friend's Perception: %i" % (friend.perception)
+        #print "Your Friend's Stealth: %i\n" % (friend.stealth)
 
         status = 'Alive'
         current_scene = Prison()
-        while status == 'Alive':
+        while status != 'dead':
             status = current_scene.enter()
 
 class Character(object):
@@ -60,7 +60,7 @@ def NPC():
 class Scene(object):
 
     def initializeLoot(self):
-        print "shit!"
+        pass
 
     def initializeEnemies(self, amount):
         pass
@@ -70,15 +70,39 @@ class Prison(Scene):
     def __init__(self):
         self.Scene = Scene()
         self.Scene.initializeLoot()
+        self.firstTime = True
 
     def enter(self):
-        print 'You wake up in a dark and cold dungeon.\nYou do not remember from where you came but you know you must escape\n'
-        action = raw_input("What do you do?  ")
+        validAnswer = False
 
-        if action == 'die':
-            action = 'Dead'
-        elif action == 'look':
-            action = 'Alive'
+        while not validAnswer:
+
+            if self.firstTime:
+                self.firstTime = False
+                print '\nYou wake up in a dark and cold dungeon.\nYou do not remember from where you came but you know you must escape.\n'
+                print 'You can search the room, attack, hide, and surrender.\n'
+                action = raw_input("What do you do?  ")
+
+                if 'surrender' in action:
+                    action = 'dead'
+                    validAnswer = True
+                elif 'search' in action:
+                    action = 'search'
+                    validAnswer = True
+                else:
+                    print 'That is not a valid response, try again: '
+
+            elif not self.firstTime:
+                action = raw_input("What do you do?  ")
+
+                if 'surrender' in action:
+                    action = 'dead'
+                    validAnswer = True
+                elif 'search' in action:
+                    action = 'search'
+                    validAnswer = True
+                else:
+                    print 'That is not a valid response, try again: '
 
         return action
 
